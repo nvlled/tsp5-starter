@@ -28,12 +28,12 @@ const drawRect_DefVals = {
     height: 0,
     alpha: 255,
 }
-export function drawRect(m: p5, args: drawRect_Args = {}) {
+export function drawRect(p5: p5, args: drawRect_Args = {}) {
     let {
         x, y, width, height,
         red, blue, green, alpha
     }= Object.assign({}, drawRect_DefVals, args);
 
-    m.fill(red, blue, green, alpha);
-    m.rect(x, y, width, height);
+    p5.fill(red, blue, green, alpha);
+    p5.rect(x, y, width, height);
 }

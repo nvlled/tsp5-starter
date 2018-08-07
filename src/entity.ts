@@ -9,12 +9,12 @@ export class Entity {
     color = new Vector(150, 0, 0);
     alpha = 250
 
-    draw(m: p5) {
+    draw(p5: p5) {
         let {x,y} = this.pos;
         let {alpha} = this;
         let {x: red, y: green, z: blue} = this.color;
         let {width, height} = this.getSize();
-        drawRect(m, {
+        drawRect(p5, {
             x, y, width, height,
             red, green, blue, alpha,
         });

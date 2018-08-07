@@ -4,11 +4,17 @@
   "description": "",
   "main": "bunde.js",
   "scripts": {
-    "start": "tsc -w",
+    "server": "http-server",
+    "watch": "tsc -w --preserveWatchOutput",
+    "start": "concurrently npm:watch http-server",
     "dist": "rm -vrf dist/ && mkdir -p dist/ && cp -rv index.html bundle.js images/ vendor/ dist/",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
-  "dependencies": {}
+  "dependencies": {},
+  "devDependencies": {
+    "concurrently": "^3.6.1",
+    "http-server": "^0.11.1"
+  }
 }

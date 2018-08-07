@@ -1,0 +1,14 @@
+{
+  "name": "p55",
+  "version": "1.0.0",
+  "description": "",
+  "main": "bunde.js",
+  "scripts": {
+    "start": "tsc -w",
+    "dist": "rm -vrf dist/ && mkdir -p dist/ && cp -rv index.html bundle.js images/ vendor/ dist/",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {}
+}

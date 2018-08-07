@@ -12,5 +12,9 @@
     "baseUrl": "./src",
     "esModuleInterop": true,
     "noEmitOnError": true,
-  }
+  },
+  "exclude": [
+      "dist",
+      "node_modules",
+  ]
 }

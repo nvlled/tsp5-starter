@@ -3,6 +3,7 @@ import {Vector} from "./vector";
 import {drawRect} from "./lib";
 
 export class Entity {
+    image: p5.Image
     pos = new Vector(0, 0);
     vel = new Vector(0, 0);
     size = new Vector(10, 10);
@@ -14,10 +15,16 @@ export class Entity {
         let {alpha} = this;
         let {x: red, y: green, z: blue} = this.color;
         let {width, height} = this.getSize();
-        drawRect(p5, {
-            x, y, width, height,
-            red, green, blue, alpha,
-        });
+        if (this.image) {
+            let {x, y} =  this.pos;
+            let {width, height} =  this.getSize();
+            p5.image(this.image, x, y, width, height);
+        } else {
+            drawRect(p5, {
+                x, y, width, height,
+                red, green, blue, alpha,
+            });
+        }
     }
 
     getSize() {

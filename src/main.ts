@@ -7,11 +7,12 @@ let loader = function(p5: p5) {
     p1.pos = new Vector(30, 20);
     p1.vel = new Vector(0.1, 0.2);
     p1.color = new Vector(240, 0, 1);
-    p1.size = new Vector(20, 40);
-    p1.alpha = 180;
+    p1.size = new Vector(120, 120);
+    p1.alpha = 10;
 
     p5.preload = function() {
         p5.frameRate(30);
+        p1.image = p5.loadImage("images/blue-dino.png");
     }
 
     let canvasWidth  = 400;

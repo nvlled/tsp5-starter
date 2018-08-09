@@ -1,5 +1,7 @@
 # tsp5-starter
-a starter project for p5js with typescript
+a starter project for [p5js](https://p5js.org/) with [typescript](https://www.typescriptlang.org/)
+
+![huh](images/huh.png)
 
 ## Setup
 0. clone this repository
@@ -11,7 +13,7 @@ a starter project for p5js with typescript
 4. open http://localhost:8080 on your browser
 5. edit files in src/ and reload browser to see changes
 
-Note: Opening index.html directly in the browser may not work since some browsers disable loading from the filesystem.
+Note: Opening index.html directly in the browser may not work since some browsers disable fetching from the filesystem.
 
 ## Deploying
 0. run: ```npm run dist``` (the files will be in dist/ directory)
@@ -19,6 +21,7 @@ Note: Opening index.html directly in the browser may not work since some browser
 
 ## Documentation
 [p5 reference](https://p5js.org/reference/)
+
 [p5 examples](https://p5js.org/examples/)
 
 Note: you must prefix p5 to all the functions and constants
@@ -40,4 +43,3 @@ p5.draw = function() {
   }
 }
 ```
-

@@ -2,28 +2,35 @@
 import {drawRect, Vector, keyCodes} from "./lib";
 import {Entity} from "./entity";
 
-let loader = function(p5: p5) {
-    let p1 = new Entity();
-    p1.pos = new Vector(30, 20);
-    p1.vel = new Vector(0.1, 0.2);
-    p1.color = new Vector(240, 0, 1);
-    p1.size = new Vector(120, 120);
-    p1.alpha = 10;
+function createPlayer() {
+    let player = new Entity();
+    player.pos = new Vector(30, 20);
+    player.vel = new Vector(0.1, 0.2);
+    player.size = new Vector(120, 120);
+    player.alpha = 10;
+    return player;
+}
+
+function loader(p5: p5) {
+    let bgImg;
+    let canvasWidth  = 640;
+    let canvasHeight = 480;
+    let player = createPlayer();
 
     p5.preload = function() {
-        p5.frameRate(30);
-        p1.image = p5.loadImage("images/blue-dino.png");
+        player.image = p5.loadImage("images/blue-dino.png");
+        bgImg = p5.loadImage("images/mess.png");
     }
 
-    let canvasWidth  = 400;
-    let canvasHeight = 400;
     p5.setup = function() {
+        p5.frameRate(30);
         p5.createCanvas(canvasWidth, canvasHeight);
     }
 
     let speed = 5;
     let vel = new Vector(0, 0);
     p5.draw = function() {
+        // Update
         vel.zero();
         let {UP, DOWN, LEFT, RIGHT } = keyCodes;
 
@@ -38,16 +45,20 @@ let loader = function(p5: p5) {
             vel.addScalar(1, 0);
 
         vel.scale(speed);
-        p1.pos.add(vel);
+        player.pos.add(vel);
 
-        p5.background(40, 40, 40);
+        // Draw
+        p5.background(250, 250, 250);
+        p5.image(bgImg, 50, 50, canvasWidth-50*2, canvasHeight-50*2);
+        player.draw(p5);
         drawRect(p5, {
-            red: 120, blue: 180,
-            x: (canvasWidth-123)/2,
-            y: (canvasHeight-123)/2,
-            width: 123, height: 123,
+            red: 80,
+            green: 180,
+            alpha: 80,
+            x: (canvasWidth-150)/2,
+            y: (canvasHeight-150)/2,
+            width: 150, height: 150,
         });
-        p1.draw(p5);
     }
 }
 

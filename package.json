@@ -6,7 +6,7 @@
   "scripts": {
     "server": "http-server",
     "watch": "tsc -w --preserveWatchOutput",
-    "start": "concurrently npm:watch http-server",
+    "start": "concurrently --names TYPESCRIPT,SERVER -c bgBlue.bold,clear npm:watch npm:server",
     "dist": "rm -vrf dist/ && mkdir -p dist/ && cp -rv index.html bundle.js images/ vendor/ dist/",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
